@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "New Title"
 date:   2024-04-24 21:01:22 +1200
 categories: jekyll update
