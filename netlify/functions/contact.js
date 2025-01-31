@@ -12,7 +12,10 @@ exports.handler = async function (event, context) {
     try {
         const formData = JSON.parse(event.body);
 
-        const response = await fetch(`https://response-form.azurewebsites.net/api/HttpTrigger1?code=${process.env.AZURE_FUNCTION_KEY}`, {
+        const url = `https://response-form.azurewebsites.net/api/HttpTrigger1?code=${process.env.AZURE_FUNCTION_KEY}`;
+        console.log('Calling Azure Function at:', url.replace(process.env.AZURE_FUNCTION_KEY, '[REDACTED]'));
+
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,7 +24,8 @@ exports.handler = async function (event, context) {
         });
 
         if (!response.ok) {
-            throw new Error(`Azure Function responded with ${response.status}`);
+            const errorText = await response.text();
+            throw new Error(`Azure Function responded with ${response.status}: ${errorText}`);
         }
 
         return {
@@ -29,9 +33,10 @@ exports.handler = async function (event, context) {
             body: JSON.stringify({ message: 'Success' }),
         };
     } catch (error) {
+        console.error('Error details:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'Failed to send message' }),
+            body: JSON.stringify({ error: `Failed to send message: ${error.message}` }),
         };
     }
 };
