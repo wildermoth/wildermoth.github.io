@@ -1,6 +1,7 @@
+[build]
+  functions = "netlify/functions"
+
 [[redirects]]
-  from = "/api/contact"
-  to = "https://response-form.azurewebsites.net/api/HttpTrigger1"
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
   status = 200
-  force = true
-  headers = {X-From = "Netlify"}
