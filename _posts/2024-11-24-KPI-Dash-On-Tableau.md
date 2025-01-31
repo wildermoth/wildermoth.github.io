@@ -13,7 +13,7 @@ toc_sticky: false
 
 {% include video id="2hUpfWJuRnw" provider="youtube" %}
 
-[At the bottom of this page](#kpi-dashboard) is the interactive dashboard created using Tableau. This dashboard was built for a sales agency to track their key performance indicators (KPIs). For demonstration purposes, I've populated it with dummy data to maintain security.
+[On this page](https://public.tableau.com/app/profile/wildermoth/viz/KPIDashboard_17382724142130/MainDash) is the interactive dashboard created using Tableau. This dashboard was built for a sales agency to track their key performance indicators (KPIs). For demonstration purposes, I've populated it with dummy data to maintain security.
 
 <!-- markdownlint-disable MD034 -->
 
