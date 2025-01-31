@@ -62,24 +62,20 @@ layout: default
         };
 
         try {
-            const response = await fetch('https://response-form.azurewebsites.net/api/HttpTrigger1', {
+            const response = await fetch('https://response-form.azurewebsites.net/api/HttpTrigger1?{{AZURE_FUNCTION_KEY}}', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-functions-key': '{{AZURE_FUNCTION_KEY}}', // The key should be sent in headers
                 },
                 body: JSON.stringify(formData),
             });
 
-            if (!response.ok) {
-                const errorText = await response.text();
-                console.error('Response status:', response.status);
-                console.error('Response text:', errorText);
-                throw new Error(`Server responded with ${response.status}: ${errorText}`);
+            if (response.ok) {
+                alert('Message sent successfully!');
+                e.target.reset();
+            } else {
+                throw new Error('Failed to send message');
             }
-
-            alert('Message sent successfully!');
-            e.target.reset();
         } catch (error) {
             console.error('Error:', error);
             alert('Failed to send message. Please try again.');
