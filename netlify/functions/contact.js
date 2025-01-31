@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 exports.handler = async function (event, context) {
     // Only allow POST
     if (event.httpMethod !== 'POST') {
