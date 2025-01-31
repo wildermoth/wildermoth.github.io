@@ -1,5 +1,10 @@
 [build]
+  command = "jekyll build"
   functions = "netlify/functions"
+  publish = "_site"
+
+[build.environment]
+  RUBY_VERSION = "3.0.0"
 
 [[redirects]]
   from = "/api/*"
