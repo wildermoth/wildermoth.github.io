@@ -95,3 +95,38 @@ $background-color: #1b1b1b !default;
 .highlight {
     font-size: 0.9em;
 }
+
+.mobile-warning {
+    display: none;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+.warning-content {
+    color: #721c24;
+}
+.warning-content i {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+.warning-content h3 {
+    margin: 10px 0;
+}
+@media screen and (max-width: 800px) {
+    .mobile-warning {
+        display: block;
+    }
+    .tableau-container,
+    .tableau-container *,
+    #viz1738273781365,
+    .tableauViz,
+    .tableauPlaceholder {
+        display: none !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+}

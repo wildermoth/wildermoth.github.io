@@ -76,6 +76,13 @@ The dashboard presents several key metrics:
   margin-bottom: 20px;
 }
 </style>
+<div class="mobile-warning">
+  <div class="warning-content">
+    <i class="fas fa-desktop"></i>
+    <h3>Please View on Desktop</h3>
+    <p>This dashboard is optimized for larger screens. For the best experience, please view on a desktop or laptop computer.</p>
+  </div>
+</div>
 <div class="tableau-container">
   <div class='tableauPlaceholder' id='viz1738273781365' style='position: relative'>
     <noscript>
