@@ -20,10 +20,8 @@ toc_sticky: true
 
 1. **The Quick Capture Bottleneck**  
 I kept saving interesting links to a "read later" file that became a graveyard of unprocessed content.
-
 2. **Context Switching Killer**  
 Manually summarizing YouTube videos, Instagram posts, and articles is tedious.
-
 3. **AI Assistant, Not Crutch**  
 I wanted an AI system that _augments_ my thinking rather than replacing it.
 

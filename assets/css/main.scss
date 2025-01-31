@@ -17,16 +17,6 @@ $background-color: #1b1b1b !default;
     line-height: 1.2;
 }
 
-.btn--large {
-    padding: 0.375rem 0.75rem;
-    font-size: 0.9rem;
-}
-
-.btn--small {
-    padding: 0.125rem 0.25rem;
-    font-size: 0.7rem;
-}
-
 .archive__item-title {
     font-size: 0.9em !important;
 }
@@ -35,16 +25,14 @@ $background-color: #1b1b1b !default;
     font-size: 0.7em !important;
 }
 
-/* General text customization */
-p {
-    font-size: 1em;
-}
-
 .page__content {
     p {
         font-size: 0.8em;
     }
     ul {
+        font-size: 0.8em;
+    }
+    ol {
         font-size: 0.8em;
     }
 }
@@ -102,4 +90,8 @@ p {
     .archive__item-title {
         margin-top: 0;
     }
+}
+
+.highlight {
+    font-size: 0.9em;
 }
