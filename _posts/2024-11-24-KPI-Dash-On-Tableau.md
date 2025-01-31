@@ -13,7 +13,7 @@ toc_sticky: false
 
 {% include video id="2hUpfWJuRnw" provider="youtube" %}
 
-[At the bottom of this page](#kpi-dashboard) is the interactive dashboard created using Tableau. This dashboard was built for a sales agency to track their key performance indicators (KPIs). For demonstration purposes, I've populated it with dummy data to maintain security.
+[On this page](https://public.tableau.com/app/profile/wildermoth/viz/KPIDashboard_17382724142130/MainDash) is the interactive dashboard created using Tableau. This dashboard was built for a sales agency to track their key performance indicators (KPIs). For demonstration purposes, I've populated it with dummy data to maintain security.
 
 <!-- markdownlint-disable MD034 -->
 
@@ -58,23 +58,20 @@ The dashboard presents several key metrics:
 - Performance metrics by vertical market
 
 ## KPI Dashboard
-
 <style>
-  .sidebar {
-  position: relative !important;
-}
-.tableau-container {
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+  .tableau-container {
+    max-width: 1400px; /* Maximum desktop size */
+    margin: 20px auto; /* Center container */
+    width: 100%;
+    overflow: hidden; /* Prevent overflow */
+  }
+
+  /* Mobile-first media queries */
+  @media (max-width: 768px) {
+    .tableau-container {
+      margin: 10px 0;
+    }
+  }
 </style>
 <div class="mobile-warning">
   <div class="warning-content">
@@ -84,56 +81,39 @@ The dashboard presents several key metrics:
   </div>
 </div>
 <div class="tableau-container">
-  <div class='tableauPlaceholder' id='viz1738273781365' style='position: relative'>
-    <noscript>
-      <a href='#'>
-        <img alt='Main Dash ' src='https://public.tableau.com/static/images/KP/KPIDashboard_17382724142130/MainDash/1_rss.png' style='border: none' />
-      </a>
-    </noscript>
-    <object class='tableauViz' style='display:none;'>
-      <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-      <param name='embed_code_version' value='3' />
-      <param name='site_root' value='' />
-      <param name='name' value='KPIDashboard_17382724142130/MainDash' />
-      <param name='tabs' value='no' />
-      <param name='toolbar' value='yes' />
-      <param name='static_image' value='https://public.tableau.com/static/images/KP/KPIDashboard_17382724142130/MainDash/1.png' />
-      <param name='animate_transition' value='yes' />
-      <param name='display_static_image' value='yes' />
-      <param name='display_spinner' value='yes' />
-      <param name='display_overlay' value='yes' />
-      <param name='display_count' value='yes' />
-      <param name='language' value='en-US' />
-    </object>
-  </div>
+  <!-- Keep existing Tableau embed code -->
 </div>
+
 <script type='text/javascript'>
   var divElement = document.getElementById('viz1738273781365');
   var vizElement = divElement.querySelector('object');
   
-  // Set initial size immediately
-  vizElement.style.width='1400px';
-  vizElement.style.height='827px';
-  
-  // Adjust size based on viewport after load
+  // Set responsive dimensions
   function resizeViz() {
-    if ( divElement.offsetWidth > 800 ) {
-      vizElement.style.width='1400px';
-      vizElement.style.height='827px';
-    } else if ( divElement.offsetWidth > 500 ) {
-      vizElement.style.width='1400px';
-      vizElement.style.height='827px';
+    var containerWidth = divElement.offsetWidth;
+    var aspectRatio = 827/1400; // Original aspect ratio
+    var mobileHeight = Math.min(containerWidth * aspectRatio, 800); // Limit mobile height
+    
+    if (containerWidth > 768) {
+      vizElement.style.width = '1400px';
+      vizElement.style.height = '827px';
     } else {
-      vizElement.style.width='100%';
-      vizElement.style.height='3927px';
+      vizElement.style.width = '100%';
+      vizElement.style.height = mobileHeight + 'px';
     }
   }
+
+  // Initial resize
+  resizeViz();
   
-  window.addEventListener('resize', resizeViz);
-  
+  // Add resize listener with debounce
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resizeViz, 100);
+  });
+
   var scriptElement = document.createElement('script');
   scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
   vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
-
-<!-- markdownlint-enable MD034 -->
