@@ -3,8 +3,15 @@
   functions = "netlify/functions"
   publish = "_site"
 
+[dev]
+  command = "bundle exec jekyll serve"
+  port = 8888
+  targetPort = 4000
+  publish = "_site"
+  framework = "#custom"
+
 [build.environment]
-  RUBY_VERSION = "3.0.0"
+  RUBY_VERSION = "3.2.3"
 
 [[redirects]]
   from = "/api/contact"

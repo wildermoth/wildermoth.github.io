@@ -36,6 +36,6 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem "webrick", "~> 1.8"
 
-ruby "3.0.0"
+ruby "3.2.3"
 gem "bundler"
 # Add any other gems your site needs
