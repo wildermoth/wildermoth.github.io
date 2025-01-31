@@ -1,5 +1,5 @@
 main:
     - title: 'Portfolio'
       url: /portfolio/
-    - title: 'Contact Me'
-      url: /contact/
+    # - title: 'Contact Me'
+    #   url: /contact/
